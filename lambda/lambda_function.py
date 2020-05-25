@@ -12,7 +12,7 @@ def lambda_handler(event, context):
         lastName = event['body']['lastName']
         companyName = event['body']['companyName']
         phoneNumber = event['body']['phoneNumber']
-        sendEmail(SENDER,firstName,lastName,"Thanks for contacting us",WE_RECEIVED_YOUR_MESSAGE_HTML,"Thanks for reaching out!")
+        sendEmail(email,firstName,lastName,"Thanks for contacting us",WE_RECEIVED_YOUR_MESSAGE_HTML,"Thanks for reaching out!")
         subject = SUBJECT_PREFIX + " " + firstName + " " +lastName
         htmlMessage = BODY_HTML.format(firstName=firstName,lastName=lastName,companyName=companyName,message=message,phoneNumber=phoneNumber)
         sendEmail(email,firstName,lastName,message,htmlMessage,subject)
