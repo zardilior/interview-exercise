@@ -121,30 +121,35 @@ class ContactUsForm extends Form {
             value = {this.state.firstName}
             error = {this.hasError('firstName')}
             helperText = {this.state.errors['firstName']}
+            required
           />
           <TextField id='lastName' label="Last Name" className="text-field half"
             onChange = {this.handleFieldChanges}
             value = {this.state.lastName}
             error = {this.hasError('lastName')}
             helperText = {this.state.errors['lastName']}
+            required
           />
           <TextField id='companyName' label="Company Name" className="text-field full"
             onChange = {this.handleFieldChanges}
             value = {this.state.companyName}
             error = {this.hasError('companyName')}
             helperText = {this.state.errors['companyName']}
+            required
           />
           <TextField id='workEmail' label="Work Email" className="text-field full"
             onChange = {this.handleFieldChanges}
             value = {this.state.workEmail}
             error = {this.hasError('workEmail')}
             helperText = {this.state.errors['workEmail']}
+            required
           />
           <TextField id='phoneNumber' label="Phone Number" className="text-field full"
             onChange = {this.handleFieldChanges}
             value = {this.state.phoneNumber}
             error = {this.hasError('phoneNumber')}
             helperText = {this.state.errors['phoneNumber']}
+            required
           />
           <TextField
             id='message'
@@ -156,6 +161,7 @@ class ContactUsForm extends Form {
             value = {this.state.message}
             error = {this.hasError('message')}
             helperText = {this.state.errors['message']}
+            required
           />
           <FormControlLabel
             id="newsletter"
