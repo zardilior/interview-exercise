@@ -16,7 +16,7 @@ def lambda_handler(event, context):
         subject = SUBJECT_PREFIX + " " + firstName + " " +lastName
         htmlMessage = BODY_HTML.format(firstName=firstName,lastName=lastName,companyName=companyName,message=message,phoneNumber=phoneNumber)
         sendEmail(email,firstName,lastName,message,htmlMessage,subject)
-        saveToDynamoDB(message, email)
+        saveToDynamoDB(message, email,firstName,lastName,companyName)
         return {
             'statusCode': 200,
             'body': json.dumps('Email Sent!')
@@ -26,11 +26,14 @@ def lambda_handler(event, context):
         'body': json.dumps('Empty request!')
     }
 
-def saveToDynamoDB(message, RECIPIENT):
+def saveToDynamoDB(message, RECIPIENT,firstName,lastName,companyName):
     dynamodb = boto3.client('dynamodb')
     dynamodb.put_item(TableName='ContactoForm', Item={
-        'message':{'S':'test'},
-        'email':{'S':RECIPIENT}
+        'message':{'S':message},
+        'email':{'S':RECIPIENT},
+        'firstName':{'S':firstName},
+        'lastName':{'S':lastname},
+        'companyName':{'S':companyname},
     })
     
 def sendEmail(RECIPIENT,firstName,lastName,message,html, subject):
