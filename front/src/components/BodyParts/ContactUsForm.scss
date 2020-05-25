@@ -1,0 +1,40 @@
+.contact-us-form {
+  text-align: left;
+
+  .link {
+    margin: 0 5px;
+  }
+
+  .text-field {
+    margin: 20px 0 0 0;
+    box-sizing: border-box;
+
+    &.half {
+      padding: 0;
+      width: 48%;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+
+    .message {
+      height: 10px;
+    }
+  }
+
+  .full {
+    width: 100%;
+  }
+
+  .contact-button {
+    margin-top: 20px;
+    text-transform: capitalize;
+    font-size: 14.5px;
+    font-weight: 600;
+
+    .icon {
+      padding-left: 50px;
+    }
+  }
+}

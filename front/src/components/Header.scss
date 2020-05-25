@@ -1,0 +1,49 @@
+@import '../_variables.scss';
+
+.header {
+  padding: 0 40px;
+  max-width: $maxWidth;
+  font-weight: 600;
+  background-color: $primaryInverseColor;
+  color: $primaryColor;
+  height: $toolbarHeight;
+  font-size: 14.5px;
+  margin: 0 auto;
+
+  .first-menu {
+    flex: 1;
+    height: 100%;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: $primaryColor;
+    flex: 1;
+    width: auto;
+
+    &.contact {
+      flex: 1;
+      text-align: right;
+      padding: 0 2vw;
+
+      .contact-button {
+        font-size: 14.5px;
+        text-transform: capitalize;
+        font-weight: 400;
+
+        .icon {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+
+  .logo {
+    height: 60%;
+    width: auto;
+
+    .logo-img {
+      height: 100%;
+    }
+  }
+}

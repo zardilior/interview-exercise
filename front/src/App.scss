@@ -1,0 +1,45 @@
+@import './_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.App {
+  .title,
+  .link {
+    color: $secondaryColor;
+  }
+
+  .title {
+    font-family: Quicksand, Ubuntu, Arial, sans-serif;
+  }
+
+  .inverse {
+    background-color: $primaryInverseColor;
+    color: $primaryInverseColor;
+  }
+
+  text-align: center;
+  font-family: "Open Sans", "Trebuchet MS", Arial, sans-serif;
+
+  .annotations {
+    text-align: left;
+    margin: 30px auto;
+    max-width: $maxWidth;
+    padding: 20px;
+
+    .text {
+      font-weight: 600;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $primaryColor;
+    color: $primaryInverseColor;
+    text-align: left;
+    font-size: 14.5px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
