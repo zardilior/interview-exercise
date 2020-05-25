@@ -32,8 +32,8 @@ def saveToDynamoDB(message, RECIPIENT,firstName,lastName,companyName):
         'message':{'S':message},
         'email':{'S':RECIPIENT},
         'firstName':{'S':firstName},
-        'lastName':{'S':lastname},
-        'companyName':{'S':companyname},
+        'lastName':{'S':lastName},
+        'companyName':{'S':companyName},
     })
     
 def sendEmail(RECIPIENT,firstName,lastName,message,html, subject):
@@ -69,5 +69,3 @@ def sendEmail(RECIPIENT,firstName,lastName,message,html, subject):
     else:
         print("Email sent! Message ID:"),
         print(response['MessageId'])
-        
-  
