@@ -5,13 +5,19 @@ from botocore.exceptions import ClientError
 from config import * 
 
 def lambda_handler(event, context):
-    if 'body' in event:
-        email = event['body']['workEmail']
-        message = event['body']['message']
-        firstName = event['body']['firstName']
-        lastName = event['body']['lastName']
-        companyName = event['body']['companyName']
-        phoneNumber = event['body']['phoneNumber']
+    method = event['requestContext']['http']['method']
+    if method == 'OPTIONS':
+         return {
+            'statusCode': 200,
+        }
+    elif 'body' in event and method == 'POST':
+        body = json.loads(event['body'])
+        email = body['workEmail']
+        message = body['message']
+        firstName = body['firstName']
+        lastName = body['lastName']
+        companyName = body['companyName']
+        phoneNumber = body['phoneNumber']
         sendEmail(email,firstName,lastName,"Thanks for contacting us",WE_RECEIVED_YOUR_MESSAGE_HTML,"Thanks for reaching out!")
         subject = SUBJECT_PREFIX + " " + firstName + " " +lastName
         htmlMessage = BODY_HTML.format(firstName=firstName,lastName=lastName,companyName=companyName,message=message,phoneNumber=phoneNumber)
@@ -21,6 +27,7 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'body': json.dumps('Email Sent!')
         }
+        
     return {
         'statusCode': 400,
         'body': json.dumps('Empty request!')
@@ -69,3 +76,6 @@ def sendEmail(RECIPIENT,firstName,lastName,message,html, subject):
     else:
         print("Email sent! Message ID:"),
         print(response['MessageId'])
+        
+  
+
